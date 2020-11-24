@@ -1,0 +1,22 @@
+Starting audit...
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:1:9: Name 'CoreFunctions' must match pattern '^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$'. [PackageName]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:3:14: Using the '.*' form of import should be avoided - fileio.*. [AvoidStarImport]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:9:5: Class 'CoreCommands' looks like designed for extension (can be subclassed), but the method 'Add_Favorite' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'CoreCommands' final or making the method 'Add_Favorite' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:9:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:9:17: Name 'Add_Favorite' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:9:30: Parameter clip should be final. [FinalParameters]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:9:46: Parameter user should be final. [FinalParameters]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:10:9: 'for' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:11:13: 'if' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:17:4: Class 'CoreCommands' looks like designed for extension (can be subclassed), but the method 'Add_View' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'CoreCommands' final or making the method 'Add_View' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:17:4: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:17:16: Name 'Add_View' must match pattern '^[a-z][a-zA-Z0-9]*$'. [MethodName]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:17:25: Parameter clip should be final. [FinalParameters]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:17:41: Parameter user should be final. [FinalParameters]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:18:8: 'for' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:19:12: 'if' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:21:12: '}' at column 12 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally). [RightCurly]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/CoreFunctions/CoreCommands.java:23:12: '{' at column 12 should be on the previous line. [LeftCurly]
+[ERROR] /Users/icyshiftry/Desktop/tema1_poo/teme/teme/tema1/Tema-POO-2020/./src/main/Main.java:6:14: Using the '.*' form of import should be avoided - fileio.*. [AvoidStarImport]
+Audit done.
+Checkstyle ends with 19 errors.

@@ -1,5 +1,6 @@
 package main;
 
+import actor.ActorsAwards;
 import checker.Checkstyle;
 import checker.Checker;
 import common.Constants;
@@ -296,21 +297,66 @@ public final class Main {
             }
             /** Check if the desired command is query. **/
             if (input.getCommands().get(i).getActionType().equals("query")) {
+                /** Check if the desired command is actors. **/
                 if (input.getCommands().get(i).getObjectType().equals("actors")) {
+                    /** Check if the desired command is average. **/
                     if (input.getCommands().get(i).getCriteria().equals("average")) {
 
                     }
+                    /** Check if the desired command is awards. **/
                     if (input.getCommands().get(i).getCriteria().equals("awards")) {
 
-                    }
-                    if (input.getCommands().get(i).getCriteria().equals("filter_description")) {
+                        List<ActorsAwards> awards = new ArrayList<>();
+
+                        if (awards.size() != 0) {
+                            for (int j = 0; j < actorlist.size(); j++) {
+                                for (Map.Entry<ActorsAwards, Integer> entry
+                                        : actorlist.get(j).getAwards().entrySet()) {
+                                    for (int k = 0; k < input.getCommands()
+                                            .get(i).getFilters().size(); k++) {
+                                        awards.add(entry.getKey());
+                                    }
+                                }
+                            }
+                        }
+
+                        JSONObject object =
+                                fileWriter.writeFile(input.getCommands().get(i).getActionId(),
+                                        "field", "Query result: "
+                                                + awards);
+                        arrayResult.add(object);
+
 
                     }
+                    /** Check if the desired command is filter_description. **/
+                    if (input.getCommands().get(i).getCriteria().equals("filter_description")) {
+
+                        List<String> filter = new ArrayList<>();
+
+                        for (int j = 0; j < actorlist.size(); j++) {
+                            for (int k = 0; k < input.getCommands()
+                                    .get(i).getFilters().size(); k++) {
+                                if (actorlist.get(j).getCareerDescription().
+                                        equals(input.getCommands().get(i).getFilters().get(k))) {
+                                    filter.add(actorlist.get(j).getCareerDescription());
+                                }
+                            }
+                        }
+
+                        JSONObject object =
+                                fileWriter.writeFile(input.getCommands().get(i).getActionId(),
+                                        "field", "Query result: "
+                                                + filter);
+                        arrayResult.add(object);
+                    }
                 }
+                /** Check if the desired command is movies. **/
                 if (input.getCommands().get(i).getObjectType().equals("movies")) {
+                    /** Check if the desired command is ratings. **/
                     if (input.getCommands().get(i).getCriteria().equals("ratings")) {
 
                     }
+                    /** Check if the desired command is favourite. **/
                     if (input.getCommands().get(i).getCriteria().equals("favorite")) {
 
                         List<String> queryfavourite =
@@ -322,6 +368,7 @@ public final class Main {
 
                         arrayResult.add(object);
                     }
+                    /** Check if the desired command is longest. **/
                     if (input.getCommands().get(i).getCriteria().equals("longest")) {
 
                             List<String> longestmovies =
@@ -334,87 +381,39 @@ public final class Main {
                                                     + longestmovies);
                             arrayResult.add(object);
 
-
+                        /** Check if the desired command is shows. **/
                         if (input.getCommands().get(i).getObjectType().equals("shows")) {
 
 
                         }
 
                     }
+                    /** Check if the desired command is most_viewed. **/
                     if (input.getCommands().get(i).getCriteria().equals("most_viewed")) {
 
                     }
                 }
+                /** Check if the desired command is shows. **/
                 if (input.getCommands().get(i).getObjectType().equals("shows")) {
+                    /** Check if the desired command is ratings. **/
                     if (input.getCommands().get(i).getCriteria().equals("ratings")) {
                         int test;
                     }
+                    /** Check if the desired command is favourite. **/
                     if (input.getCommands().get(i).getCriteria().equals("favorite")) {
 
-                        List<String> showlist = new ArrayList<>();
-                        List<String> display = new ArrayList<>();
-                        Map<String, Integer> favourite = new HashMap<>();
-                        Map<String, Integer> unsorted = new HashMap<>();
-                        int ok = 0;
-
-                        String release = input.getCommands().get(i).getFilters().get(0).get(0);
-                        String showgenre = input.getCommands().get(i).getFilters().get(1).get(0);
-
-                        int movieidx = 0;
-
-                        for (int j = 0; j < serieslist.size(); j++) {
-                            for (int k = 0; k < userlist.size(); k++) {
-                                for (int l = 0; l < userlist.get(k)
-                                        .getFavoriteMovies().size(); l++) {
-                                    if (userlist.get(k).getFavoriteMovies().get(l)
-                                            .equals(serieslist.get(j).getTitle())) {
-                                        movieidx++;
-                                    }
-                                }
-                            }
-                            favourite.put(serieslist.get(j).getTitle(), movieidx);
-                            movieidx = 0;
-                        }
-
-                        if (release != null) {
-
-                            for (int l = 0; l < serieslist.size(); l++) {
-                                String movieyear = String.valueOf(serieslist.get(l).getYear());
-                                if (movieyear.equals(release)) {
-                                    showlist.add(serieslist.get(l).getTitle());
-                                }
-                            }
-                        } else if (showgenre != null) {
-                            for (int l = 0; l < serieslist.size(); l++) {
-                                for (int m = 0; m < serieslist.get(l).getGenres().size(); m++) {
-                                    if (showgenre.equals(serieslist.get(l).getGenres().get(m))) {
-                                        showlist.add(serieslist.get(l).getTitle());
-                                    }
-                                }
-                            }
-                        } else {
-                            unsorted.putAll(favourite);
-                        }
-
-                        for (int j = 0; j < showlist.size(); j++) {
-                            for (Map.Entry<String, Integer> entry : favourite.entrySet()) {
-                                if (showlist.get(j).equals(entry.getKey())) {
-                                    unsorted.put(entry.getKey(), favourite.get(entry.getKey()));
-                                }
-                            }
-                        }
-
-                        for (Map.Entry<String, Integer> entry : unsorted.entrySet()) {
-                            display.add(entry.getKey());
-                        }
+                        List<String> favouriteseries =
+                                queries.executeFavouriteseries(input.getCommands().get(i),
+                                        serieslist, userlist);
 
                         JSONObject object =
                                 fileWriter.writeFile(input.getCommands().get(i).getActionId(),
-                                        "field", "Query result: " + display);
+                                        "field", "Query result: " + favouriteseries);
 
                         arrayResult.add(object);
 
                     }
+                    /** Check if the desired command is longest. **/
                     if (input.getCommands().get(i).getCriteria().equals("longest")) {
 
                         List<String> longestseries =
@@ -429,11 +428,14 @@ public final class Main {
                         arrayResult.add(object);
 
                     }
+                    /** Check if the desired command is most_viewed. **/
                     if (input.getCommands().get(i).getCriteria().equals("most_viewed")) {
 
                     }
                 }
+                /** Check if the desired command is users. **/
                 if (input.getCommands().get(i).getObjectType().equals("users")) {
+                    /** Check if the desired command is num_ratings. **/
                     if (input.getCommands().get(i).getCriteria().equals("num_ratings")) {
 
                     }
@@ -443,6 +445,7 @@ public final class Main {
             }
             /** Check if the desired command is recommendation. **/
             if (input.getCommands().get(i).getActionType().equals("recommendation")) {
+                /** Check if the desired command is standard. **/
                 if (input.getCommands().get(i).getType().equals("standard")) {
 
                     int ok = 0;
@@ -468,6 +471,7 @@ public final class Main {
                     arrayResult.add(object);
                 }
 
+                /** Check if the desired command is search. **/
                 if (input.getCommands().get(i).getType().equals("search")) {
 
                     List<String> titles =

@@ -22,7 +22,6 @@ public final class CoreMovie {
     /**
      * The rating the show received
      */
-
     private double rating;
 
     public String getTitle() {

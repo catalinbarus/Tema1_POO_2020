@@ -5,11 +5,16 @@ import fileio.Input;
 
 import java.util.List;
 
+/**
+ * Utility functions for initializing the lists with data from the parsing of JSON files. Their
+ * purpose is to ease the core implementations as well as to shorten the code. They also make
+ * sure the provided functions from skel do not break.
+ */
 public class CoreLaunch {
 
 
     /**
-     *
+     * Initialize the actor list.
      */
     public List<CoreActor> launchActors(final Input input, final List<CoreActor> actorlist) {
 
@@ -25,7 +30,7 @@ public class CoreLaunch {
         return actorlist;
     }
     /**
-     *
+     * Initialize the user list.
      */
     public List<CoreUsers> launchUsers(final Input input, final List<CoreUsers> userlist) {
 
@@ -42,7 +47,7 @@ public class CoreLaunch {
     }
 
     /**
-     *
+     * Initialize the command list.
      */
     public List<CoreAction> launchAction(final Input input, final List<CoreAction> actionlist) {
 
@@ -60,7 +65,7 @@ public class CoreLaunch {
     }
 
     /**
-     *
+     * Initialize the movie list.
      */
     public List<CoreMovie> launchMovie(final Input input, final List<CoreMovie> movielist) {
         for (int i = 0; i < input.getMovies().size(); i++) {
@@ -77,7 +82,7 @@ public class CoreLaunch {
     }
 
     /**
-     *
+     * Initialize the series list.
      */
     public List<CoreSeries> launchSeries(final Input input, final List<CoreSeries> serieslist) {
 

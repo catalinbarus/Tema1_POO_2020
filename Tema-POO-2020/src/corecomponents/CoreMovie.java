@@ -1,6 +1,5 @@
 package corecomponents;
 
-import fileio.MovieInputData;
 import java.util.ArrayList;
 
 /**

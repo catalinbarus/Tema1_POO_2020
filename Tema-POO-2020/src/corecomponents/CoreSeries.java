@@ -1,7 +1,6 @@
 package corecomponents;
 
 import entertainment.Season;
-import fileio.SerialInputData;
 import java.util.ArrayList;
 
 /**

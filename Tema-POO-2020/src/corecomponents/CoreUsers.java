@@ -1,8 +1,7 @@
 package corecomponents;
 
-import fileio.UserInputData;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -23,6 +22,10 @@ public final class CoreUsers {
      * The history of the movies seen
      */
     private final Map<String, Integer> history;
+    /**
+     *  The history of videos rated
+     */
+    private Map<String, Integer> ratedvids = new HashMap<>();
     /**
      * Movies added to favorites
      */
@@ -51,6 +54,10 @@ public final class CoreUsers {
 
     public ArrayList<String> getFavoriteMovies() {
         return favoriteMovies;
+    }
+
+    public Map<String, Integer> getRatedvids() {
+        return ratedvids;
     }
 
     @Override

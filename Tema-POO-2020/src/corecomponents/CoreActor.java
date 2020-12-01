@@ -1,6 +1,5 @@
 package corecomponents;
 import actor.ActorsAwards;
-import fileio.ActorInputData;
 import java.util.ArrayList;
 import java.util.Map;
 
